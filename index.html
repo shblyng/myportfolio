@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inyang Shebuel, Software Designer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="container">
+        <header>
+            <a href="index.html">
+                <img src="images/avatar.PNG" alt="Inyang Shebuel" class="avatar">
+            </a>
+            <h1>Inyang Shebuel</h1>
+            <p class="subtitle">Software designer.</p>
+        </header>
+
+        <section class="intro">
+            <p>I design products with depth — working deeply through problems, prototyping extensively, 
+                crafting interfaces that feel right with love and intention.</p>
+
+            <p>I've learned that doing a few things exceptionally well matters more than doing many things adequately.</p>
+
+            <p>My <a href="work.html">work</a> shows how I solve real problems through careful research, 
+                thoughtful and iterative design, and detailed prototyping. Beyond client work, 
+                I make <a href="projects.html">personal projects</a> for curiosity, learning, and love of craft, 
+                and I write <a href="writings.html">letters</a> about my journey through design, my love for the practice, 
+                and building a sustainable creative life.</p>
+
+            <p>I'm currently looking for my next role as a product designer. 
+                I'm interested in working with teams that value thoughtfulness over speed and timeless craft over trends.</p>
+            <p>If this resonates, You can reach me at  👉🏾 <button class="email-copy" data-email="helloshebuel@gmail.com">Email</button>
+            </p>
+        </section>
+
+    </main>
+    <script>
+document.querySelector('.email-copy').addEventListener('click', function() {
+    const email = this.getAttribute('data-email');
+    
+    navigator.clipboard.writeText(email).then(() => {
+        const originalText = this.textContent;
+        
+        this.textContent = 'Copied!';
+        this.classList.add('copied');
+        
+        setTimeout(() => {
+            this.textContent = originalText;
+            this.classList.remove('copied');
+        }, 2000);
+    });
+});
+</script>
+</body>
+</html>
