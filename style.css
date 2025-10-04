@@ -17,10 +17,10 @@ body {
 }
 
 .work-header {
-    font-size: 20px;
+    font-size: 16px;
     line-height: 24px;
     letter-spacing: -0.09008px;
-    font-weight: 440;
+    font-weight: 480;
 }
 
 .work-intro {
@@ -50,10 +50,10 @@ body {
 
 /* Typography */
 h1 {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 24px;
     letter-spacing: -0.09008px;
-    font-weight: 440;
+    font-weight: 480;
 }
 
 .subtitle {
@@ -146,13 +146,13 @@ footer {
 
 
 /* Mobile Responsive */
-@media (max-width: 620px) {
+@media (max-width: 600px) {
     .container {
         padding: 80px 20px;
     }
 
     h1 {
-        font-size: 14px;
+        font-size: 16px;
     }
 
     body {
