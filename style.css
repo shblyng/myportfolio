@@ -87,6 +87,11 @@ em {
     text-decoration: none;
 }
 
+a[href*="letters"] {
+    color: rgba(0, 0, 0, 0.4);
+    text-decoration: none;
+}
+
 .nav-link {
     display: flex;
     flex-direction: row;
@@ -196,6 +201,35 @@ footer {
     text-decoration-color: #00a128;
 }
 
+/* Letter meta (date · read time) */
+.letter-meta {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.4);
+    margin-bottom: 24px;
+}
+
+.letter-meta .dot {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+/* Letter content */
+.letter-content h1 {
+    font-size: 20px;
+    font-weight: 600;
+    padding-top: 40px;
+    margin-bottom: 32px;
+    line-height: 1.2;
+}
+
+.letter-content p {
+    margin-bottom: 24px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
 /* Mobile Responsive */
 @media (max-width: 600px) {
     .container {
@@ -233,5 +267,9 @@ footer {
 
     .letter-row::marker {
         color: rgba(0, 0, 0, 0.4); /* Blue bullets */
+    }
+
+    .letter-content h1 {
+        font-size: 18px;
     }
 }
