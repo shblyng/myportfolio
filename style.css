@@ -212,10 +212,26 @@ footer {
 
     .letter-row {
         flex-direction: column;
-        gap: 2px;
+        gap: 0;
+        list-style: disc;
+        display: list-item;
+        padding-left: 10px;
     }
     
     .letter-row time {
         display: none;
+    }
+
+    .letter-row h2 {
+        display: inline;
+    }
+
+    .letters-simple {
+        padding-left: 0;
+        margin-left: 20px;
+    }
+
+    .letter-row::marker {
+        color: rgba(0, 0, 0, 0.4); /* Blue bullets */
     }
 }
