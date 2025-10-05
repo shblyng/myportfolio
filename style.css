@@ -56,6 +56,16 @@ h1 {
     font-weight: 480;
 }
 
+/* Letters list */
+h2 {
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: -0.09008px;
+    font-weight: 440;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
 .subtitle {
     font-size: 14px;
     color: rgba(0, 0, 0, 0.4);
@@ -72,15 +82,21 @@ em {
     font-weight: 500;
 }
 
-/* Links */
-a {
-    color: #3e9fff;
+.work-header a[href*="index"] {
+    color: #000000;
     text-decoration: none;
-    transition: color 0.2s ease;
 }
 
-a:hover {
-    color: #0d76de;
+.nav-link {
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    align-items: baseline;
+}
+
+.work-header2 {
+    color: rgba(0, 0, 0, 0.4);
+    text-decoration: none;
 }
 
 /* Sections */
@@ -97,16 +113,7 @@ a:hover {
     font-weight: 540;
 }
 
-.intro a[href*="projects"] {
-    color: rgb(226, 120, 0);
-    text-decoration: underline;
-    text-decoration-color: rgba(226, 120, 0, 0.4);
-    text-decoration-thickness: 2px;
-    text-underline-offset: 2px;
-    font-weight: 540;
-}
-
-.intro a[href*="writings"] {
+.intro a[href*="letters"] {
     color: #00a128;
     text-decoration: underline;
     text-decoration-color: rgba(0, 161, 40, 0.4);
@@ -144,11 +151,55 @@ footer {
     padding-top: 20px;
 }
 
+/* Letters page - simple list */
+.letters-simple {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 40px;
+}
+
+.letter-row {
+    display: flex;
+    gap: 32px;
+    align-items: baseline;
+    padding: 0;
+}
+
+.letter-row time {
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 14px;
+    min-width: 60px;
+    font-variant-numeric: tabular-nums;
+}
+
+.letter-row h2 {
+    font-size: 14px;
+    font-weight: 440;
+    margin: 0;
+}
+
+.letter-row h2 a {
+    color: #000000;
+    text-decoration: underline;
+    text-decoration-thickness: 1.8px;
+    text-underline-offset: 1.5px;
+    text-decoration-color: #000000;
+    transition: color 0.2s ease;
+}
+
+.letter-row h2 a:hover {
+    color: #00a128;
+    text-decoration: underline;
+    text-decoration-thickness: 1.8px;
+    text-underline-offset: 1.5px;
+    text-decoration-color: #00a128;
+}
 
 /* Mobile Responsive */
 @media (max-width: 600px) {
     .container {
-        padding: 80px 20px;
+        padding: 44px 20px;
     }
 
     h1 {
@@ -157,5 +208,14 @@ footer {
 
     body {
         font-size: 14px;
+    }
+
+    .letter-row {
+        flex-direction: column;
+        gap: 2px;
+    }
+    
+    .letter-row time {
+        display: none;
     }
 }
