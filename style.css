@@ -34,7 +34,7 @@ body {
 .container {
     max-width: 582px;
     margin: 0 auto;
-    padding: 80px 16px 40px;
+    padding: 80px 16px 8px;
 }
 
 /* avatar */
@@ -67,7 +67,7 @@ h2 {
 }
 
 /* Work Sections */
-.work-section {
+.work-section-case {
     font-size: 14px;
     line-height: 24px;
     letter-spacing: -0.09008px;
@@ -75,6 +75,17 @@ h2 {
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     padding-top: 20px;
+}
+
+.work-section-exp {
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: -0.09008px;
+    font-weight: 600;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    padding-top: 20px;
+    padding-bottom: 0;
 }
 
 .subtitle {
@@ -232,8 +243,8 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 0;
-    margin-top: 24px;
-    margin-bottom: 40px;
+    margin-bottom: 16px;
+    padding-top: 8px;
 }
 
 .work-row {
@@ -331,33 +342,48 @@ footer {
     transition: color 0.2s ease;
 }
 
-/* Bento grid for project images */
-.bento-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin: 32px 0;
+/* Explorations bento grid */
+
+.explorations-wide {
+    max-width: 1200px; /* Wider than your 650px container */
+    margin: 0 auto;
+    padding-top: 16px;
+    padding-bottom: 16px;
 }
 
-.bento-grid img {
+.explorations-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+    padding-top: 16px;
+}
+
+.exploration-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 24px;
+}
+
+.exploration-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 8px;
-    margin: 0;
+    display: grid;
+    border: #ffffff 2px solid;
+    border-radius: 24px;
 }
 
-/* Larger featured image */
-.bento-large {
+.exploration-item.large {
     grid-column: span 2;
-    grid-row: span 1;
 }
 
-/* Tall image */
-.bento-tall {
-    grid-row: span 1;
+/* Tablet: 3 columns */
+@media (max-width: 1100px) {
+    .explorations-grid {
+        grid-template-columns: repeat(4, 1fr);
+        padding: 0 32px;
+    }
 }
-
 
 /* Mobile Responsive */
 @media (max-width: 600px) {
@@ -406,13 +432,21 @@ footer {
         display: none;
     }
 
-    .bento-grid {
+    .explorations-grid {
         grid-template-columns: 1fr;
     }
     
-    .bento-large,
-    .bento-tall {
+    .exploration-item.large,
+    .exploration-item.tall {
         grid-column: span 1;
         grid-row: span 1;
+    }
+
+    .explorations-wide {
+        padding: 0 4px;
+    }
+    
+    .explorations-grid {
+        grid-template-columns: 1fr;
     }
 }
