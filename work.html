@@ -102,58 +102,29 @@
                 </div>
 
                 <div class="exploration-item large">
-                    <img src="images/exploration2.jpg" alt="Another exploration">
+                    <video class="media-wrapper" loop muted playsinline>
+                    <source src="images/sample.mp4" type="video/mp4">
+                </video>
                 </div>
             </div>
-            </div>
-
-        <!-- <section class="work-grid">
-        <article class="work-card">
-        <a href="work-micro-investment.html">
-            <img src="images/portfoliocover1.jpg" alt="Micro-Investment Wheel">
-            <div class="card-content">
-                <h2>Micro-Investment Wheel</h2>
-                <p>Gamified savings for young professionals in Nigeria</p>
-                <span class="year">2024</span>
-            </div>
-        </a>
-        </article>
-
-        <article class="work-card">
-        <a href="work-fantastic-realms.html">
-            <img src="images/portfoliocover2.jpg" alt="Fantastic Realms">
-            <div class="card-content">
-                <h2>Fantastic Realms</h2>
-                <p>What I learned from a failed fiction platform</p>
-                <span class="year">2023</span>
-            </div>
-        </a>
-        </article>
-
-        <article class="work-card">
-        <a href="work-micro-investment.html">
-            <img src="images/portfoliocover1.jpg" alt="Micro-Investment Wheel">
-            <div class="card-content">
-                <h2>Micro-Investment Wheel</h2>
-                <p>Gamified savings for young professionals in Nigeria</p>
-                <span class="year">2024</span>
-            </div>
-        </a>
-        </article>
-
-        <article class="work-card">
-        <a href="work-fantastic-realms.html">
-            <img src="images/portfoliocover2.jpg" alt="Fantastic Realms">
-            <div class="card-content">
-                <h2>Fantastic Realms</h2>
-                <p>What I learned from a failed fiction platform</p>
-                <span class="year">2023</span>
-            </div>
-        </a>
-        </article>
-
-         More cards 
-        </section> -->
+        </div>
 
     </main>
+
+    <script>
+// Autoplay videos on hover
+document.querySelectorAll('.media-wrapper').forEach(video => {
+    const wrapper = video.closest('.exploration-item');
+    
+    wrapper.addEventListener('mouseenter', () => {
+        video.play();
+    });
+    
+    wrapper.addEventListener('mouseleave', () => {
+        video.pause();
+        video.currentTime = 0; // Reset to start
+    });
+});
+</script>
 </body>
+</html>
