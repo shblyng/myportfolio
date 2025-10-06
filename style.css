@@ -11,7 +11,7 @@ body {
     line-height: 24px;
     font-weight: 440;
     color: #000000;
-    background: #fdfdfc;
+    background: #f9f9f9;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
 }
@@ -64,6 +64,17 @@ h2 {
     font-weight: 440;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
+}
+
+/* Work Sections */
+.work-section {
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: -0.09008px;
+    font-weight: 600;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    padding-top: 20px;
 }
 
 .subtitle {
@@ -162,23 +173,19 @@ footer {
     flex-direction: column;
     gap: 14px;
     margin-top: 40px;
+    margin-left: 20px;
 }
 
 .letter-row {
-    display: flex;
+    display: list-item;
     gap: 32px;
     align-items: baseline;
-    padding: 0;
-}
-
-.letter-row time {
-    color: rgba(0, 0, 0, 0.4);
-    font-size: 14px;
-    min-width: 60px;
-    font-variant-numeric: tabular-nums;
+    padding: 4px 0;
+    padding-left: 10px;
 }
 
 .letter-row h2 {
+    display: inline;
     font-size: 14px;
     font-weight: 440;
     margin: 0;
@@ -201,19 +208,9 @@ footer {
     text-decoration-color: #00a128;
 }
 
-/* Letter meta (date · read time) */
-.letter-meta {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    font-size: 14px;
-    color: rgba(0, 0, 0, 0.4);
-    margin-bottom: 24px;
-}
-
-.letter-meta .dot {
-    color: rgba(0, 0, 0, 0.4);
-}
+.letter-row::marker {
+        color: rgba(0, 0, 0, 0.4);
+    }
 
 /* Letter content */
 .letter-content h1 {
@@ -229,6 +226,138 @@ footer {
     font-size: 14px;
     line-height: 1.5;
 }
+
+/* Work/project page */
+.work-simple {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 24px;
+    margin-bottom: 40px;
+}
+
+.work-row {
+    display: flex;
+    gap: 0;
+    align-items: baseline;
+    padding: 18px 0;
+    position: relative;
+    border-bottom: 0.5px solid #f0f0f0;
+}
+
+.work-row:last-child {
+    border-bottom: none; /* Remove border from last item */
+}
+
+.work-row:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0.5px;
+    background: #f0f0f0;
+}
+
+/* Preview stack - hidden by default */
+.preview-stack {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 0px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+/* Show on hover */
+.work-row:hover .preview-stack {
+    opacity: 100;
+}
+
+/* Individual preview images */
+.preview-stack img {
+    width: 30px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Stacked effect - each image slightly offset */
+.preview-stack img:nth-child(1) {
+    transform: rotate(-12deg) translateY(2px);
+    border: #ffffff 2px solid;
+}
+
+.preview-stack img:nth-child(2) {
+    transform: rotate(0deg);
+    border: #ffffff 2px solid;
+    z-index: 2;
+}
+
+.preview-stack img:nth-child(3) {
+    transform: rotate(12deg) translateY(2px);
+    border: #ffffff 2px solid;
+}
+
+
+.work-row time {
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 14px;
+    min-width: 60px;
+    font-variant-numeric: tabular-nums;
+}
+
+.work-row h2 {
+    font-size: 14px;
+    font-weight: 440;
+    padding: 0;
+}
+
+.work-row h2 a {
+    color: #000000;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.work-row h2 a:hover {
+    color: rgba(0, 0, 0, 0.6);
+    text-decoration: none;
+    text-decoration-thickness: 1.8px;
+    text-underline-offset: 1.5px;
+    text-decoration-color: rgba(0, 0, 0, 0.1);
+    transition: color 0.2s ease;
+}
+
+/* Bento grid for project images */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 32px 0;
+}
+
+.bento-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 0;
+}
+
+/* Larger featured image */
+.bento-large {
+    grid-column: span 2;
+    grid-row: span 1;
+}
+
+/* Tall image */
+.bento-tall {
+    grid-row: span 1;
+}
+
 
 /* Mobile Responsive */
 @media (max-width: 600px) {
@@ -266,10 +395,24 @@ footer {
     }
 
     .letter-row::marker {
-        color: rgba(0, 0, 0, 0.4); /* Blue bullets */
+        color: rgba(0, 0, 0, 0.4);
     }
 
     .letter-content h1 {
         font-size: 18px;
+    }
+
+    .preview-stack {
+        display: none;
+    }
+
+    .bento-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .bento-large,
+    .bento-tall {
+        grid-column: span 1;
+        grid-row: span 1;
     }
 }
