@@ -377,6 +377,10 @@ footer {
     grid-column: span 2;
 }
 
+.exploration-item.large2 {
+    grid-column: span 4;
+}
+
 .media-wrapper {
     grid-template-columns: repeat(6, 1fr);
     position: relative;
@@ -451,6 +455,11 @@ footer {
     
     .exploration-item.large,
     .exploration-item.tall {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    .exploration-item.large2 {
         grid-column: span 1;
         grid-row: span 1;
     }
